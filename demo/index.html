@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="test()"> 获取第一个id</button>
+<button onclick="testFindFirst()"> find查找第一个id</button>
+<button onclick="getFields(formValues)"> 将普通json转换为antd form格式</button>
+<script src="index.js"></script>
+<script>
+    let jsonArr = [
+        {
+            "id": "1006728859758522368",
+            "parentId": "1006727453923405824",
+            "nodeType": "1",
+            "children": [
+                {
+                    "id": "1006728859808854016-T00002",
+                    "parentId": "1006728859758522368",
+                    "nodeType": "2",
+                    "children": [
+
+                    ],
+                    "companyId": "1006728859808854016-T00002",
+                    "companyName": "层层扣利杨帅一级机构直属团队",
+                    "parentCompany": "1006728859758522368"
+                },
+                {
+                    "id": "1006728927735607296",
+                    "parentId": "1006728859758522368",
+                    "nodeType": "1",
+                    "children": [
+                        {
+                            "id": "1006728927752384512-T00003",
+                            "parentId": "1006728927735607296",
+                            "nodeType": "2",
+                            "children": [
+
+                            ],
+                            "companyId": "1006728927752384512-T00003",
+                            "companyName": "层层扣利杨帅二级机构直属团队",
+                            "parentCompany": "1006728927735607296"
+                        },
+                        {
+                            "id": "1006730698453315584-T77633",
+                            "parentId": "1006728927735607296",
+                            "nodeType": "2",
+                            "children": [
+
+                            ],
+                            "companyId": "1006730698453315584-T77633",
+                            "companyName": "二级机构的团队",
+                            "parentCompany": "1006728927735607296"
+                        },
+                        {
+                            "id": "1055378426985635840-T68558",
+                            "parentId": "1006728927735607296",
+                            "nodeType": "2",
+                            "children": [
+
+                            ],
+                            "companyId": "1055378426985635840-T68558",
+                            "companyName": "二级团队",
+                            "parentCompany": "1006728927735607296"
+                        },
+                        {
+                            "id": "1009406101160984576",
+                            "parentId": "1006728927735607296",
+                            "nodeType": "1",
+                            "children": [
+                                {
+                                    "id": "1009406101483945984-T00006",
+                                    "parentId": "1009406101160984576",
+                                    "nodeType": "2",
+                                    "children": [
+
+                                    ],
+                                    "companyId": "1009406101483945984-T00006",
+                                    "companyName": "直属团队",
+                                    "parentCompany": "1009406101160984576"
+                                },
+                                {
+                                    "id": "1009413397865832448",
+                                    "parentId": "1009406101160984576",
+                                    "nodeType": "1",
+                                    "children": [
+                                        {
+                                            "id": "1009413398251708416-T00007",
+                                            "parentId": "1009413397865832448",
+                                            "nodeType": "2",
+                                            "children": [
+
+                                            ],
+                                            "companyId": "1009413398251708416-T00007",
+                                            "companyName": "直属团队",
+                                            "parentCompany": "1009413397865832448"
+                                        },
+                                        {
+                                            "id": "1115882943345860608-T73584",
+                                            "parentId": "1009413397865832448",
+                                            "nodeType": "2",
+                                            "children": [
+
+                                            ],
+                                            "companyId": "1115882943345860608-T73584",
+                                            "companyName": "aaa",
+                                            "parentCompany": "1009413397865832448"
+                                        }
+                                    ],
+                                    "companyId": "1009413397865832448",
+                                    "companyName": "层层扣利杨帅四级机构111",
+                                    "parentCompany": "1009406101160984576"
+                                },
+                                {
+                                    "id": "1009424100634931200",
+                                    "parentId": "1009406101160984576",
+                                    "nodeType": "1",
+                                    "children": [
+
+                                    ],
+                                    "companyId": "1009424100634931200",
+                                    "companyName": "层层扣利杨帅四级机构2",
+                                    "parentCompany": "1009406101160984576"
+                                },
+                                {
+                                    "id": "1010350337494728704",
+                                    "parentId": "1009406101160984576",
+                                    "nodeType": "1",
+                                    "children": [
+                                        {
+                                            "id": "1010350337847050240-T00009",
+                                            "parentId": "1010350337494728704",
+                                            "nodeType": "2",
+                                            "children": [
+
+                                            ],
+                                            "companyId": "1010350337847050240-T00009",
+                                            "companyName": "直属团队",
+                                            "parentCompany": "1010350337494728704"
+                                        }
+                                    ],
+                                    "companyId": "1010350337494728704",
+                                    "companyName": "层层扣利杨帅商户四级机构3",
+                                    "parentCompany": "1009406101160984576"
+                                },
+                                {
+                                    "id": "1011867011795509248",
+                                    "parentId": "1009406101160984576",
+                                    "nodeType": "1",
+                                    "children": [
+                                        {
+                                            "id": "1011867011959087104-T00011",
+                                            "parentId": "1011867011795509248",
+                                            "nodeType": "2",
+                                            "children": [
+
+                                            ],
+                                            "companyId": "1011867011959087104-T00011",
+                                            "companyName": "直属团队",
+                                            "parentCompany": "1011867011795509248"
+                                        }
+                                    ],
+                                    "companyId": "1011867011795509248",
+                                    "companyName": "层层扣利杨帅四级机构3",
+                                    "parentCompany": "1009406101160984576"
+                                }
+                            ],
+                            "companyId": "1009406101160984576",
+                            "companyName": "层层扣利杨帅三级机构",
+                            "parentCompany": "1006728927735607296"
+                        },
+                        {
+                            "id": "1011934714552000512",
+                            "parentId": "1006728927735607296",
+                            "nodeType": "1",
+                            "children": [
+                                {
+                                    "id": "1011934714816241664-T00012",
+                                    "parentId": "1011934714552000512",
+                                    "nodeType": "2",
+                                    "children": [
+
+                                    ],
+                                    "companyId": "1011934714816241664-T00012",
+                                    "companyName": "直属团队",
+                                    "parentCompany": "1011934714552000512"
+                                },
+                                {
+                                    "id": "1041566591806898176",
+                                    "parentId": "1011934714552000512",
+                                    "nodeType": "1",
+                                    "children": [
+                                        {
+                                            "id": "1041566592276660224-T00015",
+                                            "parentId": "1041566591806898176",
+                                            "nodeType": "2",
+                                            "children": [
+
+                                            ],
+                                            "companyId": "1041566592276660224-T00015",
+                                            "companyName": "直属团队",
+                                            "parentCompany": "1041566591806898176"
+                                        }
+                                    ],
+                                    "companyId": "1041566591806898176",
+                                    "companyName": "杨帅四级机构11",
+                                    "parentCompany": "1011934714552000512"
+                                }
+                            ],
+                            "companyId": "1011934714552000512",
+                            "companyName": "层层扣利杨帅三级机构3",
+                            "parentCompany": "1006728927735607296"
+                        }
+                    ],
+                    "companyId": "1006728927735607296",
+                    "companyName": "层层扣利杨帅二级机构22",
+                    "parentCompany": "1006728859758522368"
+                },
+                {
+                    "id": "1127840466119266304",
+                    "parentId": "1006728859758522368",
+                    "nodeType": "1",
+                    "children": [
+                        {
+                            "id": "1127840466723246080-T00018",
+                            "parentId": "1127840466119266304",
+                            "nodeType": "2",
+                            "children": [
+
+                            ],
+                            "companyId": "1127840466723246080-T00018",
+                            "companyName": "直属团队",
+                            "parentCompany": "1127840466119266304"
+                        }
+                    ],
+                    "companyId": "1127840466119266304",
+                    "companyName": "测试二级机构",
+                    "parentCompany": "1006728859758522368"
+                }
+            ],
+            "companyId": "1006728859758522368",
+            "companyName": "层层扣利杨帅一级机构1",
+            "parentCompany": "1006727453923405824"
+        },
+        {
+            "id": "1009989858351943680",
+            "parentId": "1006727453923405824",
+            "nodeType": "1",
+            "children": [
+                {
+                    "id": "1009989858842677248-T00008",
+                    "parentId": "1009989858351943680",
+                    "nodeType": "2",
+                    "children": [
+
+                    ],
+                    "companyId": "1009989858842677248-T00008",
+                    "companyName": "直属团队",
+                    "parentCompany": "1009989858351943680"
+                }
+            ],
+            "companyId": "1009989858351943680",
+            "companyName": "层层扣利杨帅一级机构2",
+            "parentCompany": "1006727453923405824"
+        },
+        {
+            "id": "1024928946695380992",
+            "parentId": "1006727453923405824",
+            "nodeType": "1",
+            "children": [
+                {
+                    "id": "1024928947525853184-T00013",
+                    "parentId": "1024928946695380992",
+                    "nodeType": "2",
+                    "children": [
+
+                    ],
+                    "companyId": "1024928947525853184-T00013",
+                    "companyName": "直属团队",
+                    "parentCompany": "1024928946695380992"
+                }
+            ],
+            "companyId": "1024928946695380992",
+            "companyName": "杨帅商户层层扣利一级机构3",
+            "parentCompany": "1006727453923405824"
+        },
+        {
+            "id": "1035404543771189248",
+            "parentId": "1006727453923405824",
+            "nodeType": "1",
+            "children": [
+                {
+                    "id": "1035404544471638016-T00014",
+                    "parentId": "1035404543771189248",
+                    "nodeType": "2",
+                    "children": [
+
+                    ],
+                    "companyId": "1035404544471638016-T00014",
+                    "companyName": "直属团队",
+                    "parentCompany": "1035404543771189248"
+                }
+            ],
+            "companyId": "1035404543771189248",
+            "companyName": "杨帅一级机构4",
+            "parentCompany": "1006727453923405824"
+        },
+        {
+            "id": "1006727453935988736-T00001",
+            "parentId": "1006727453923405824",
+            "nodeType": "2",
+            "children": [
+
+            ],
+            "companyId": "1006727453935988736-T00001",
+            "companyName": "层层扣利杨帅商户直属团队",
+            "parentCompany": "1006727453923405824"
+        },
+        {
+            "id": "1006729546106040320-T33031",
+            "parentId": "1006727453923405824",
+            "nodeType": "2",
+            "children": [
+
+            ],
+            "companyId": "1006729546106040320-T33031",
+            "companyName": "层层扣利杨帅商户小二团队",
+            "parentCompany": "1006727453923405824"
+        },
+        {
+            "id": "1010404509665574912-T67128",
+            "parentId": "1006727453923405824",
+            "nodeType": "2",
+            "children": [
+
+            ],
+            "companyId": "1010404509665574912-T67128",
+            "companyName": "小三团队",
+            "parentCompany": "1006727453923405824"
+        }
+    ];
+    findFistId=(arr)=>{
+        return arr.find((item, index, array) => {
+            if (item.nodeType !== "2" && item.children.length > 0) {
+                findFistId(item.children);
+            }
+            return item.nodeType === "2";
+        })
+    }
+
+    getFirstId=(arr, callback)=> {
+        if (!arr || typeof arr !== "object" || arr.length <= 0) {
+            callback("");
+            return;
+        }
+        let count = 0;
+        arr.every(item => {
+            if (item.nodeType === "2") {
+                if (count < 1) {
+                    callback(item.companyId);
+                    count++;
+                }
+            } else if (item.children.length > 0 && count < 1) {
+                console.log("执行了")
+                getFirstId(item.children,callback);
+            }
+        });
+    }
+
+    findParentKeysById=(arr,targetId)=>{
+        arr.find((value, index, arr) => {
+
+        })
+    }
+
+    function test() {
+        getFirstId(jsonArr,id=>{
+            console.log("id: " + id)
+        })
+        let id = "1127840466723246080-T00018"
+    }
+    function testFindFirst() {
+        let id = findFistId(jsonArr);
+        console.log("find方法查找第一个id： " + id)
+    }
+
+</script>
+</body>
+</html>
