@@ -56,7 +56,7 @@ console.log(total); // {sum:1130}
 使用`reduce`方法可以完成多维度的数据叠加。如上例中的初始值`{sum: 0}`，这仅仅是一个维度的操作，如果涉及到了多个属性的叠加，如{sum: 0,totalInEuros: 0,totalInYen: 0}，则需要相应的逻辑进行处理。
 
 在下面的方法中，采用分而治之的方法，即将`reduce`函数第一个参数callback封装为一个数组，由数组中的每一个函数单独进行叠加并完成reduce操作。所有的一切通过一个`manager`函数来管理流程和传递初始参数。
-```gwt javascript
+```Javascript
 var manageReducers = function(reducers) {
   return function(state, item) {
     return Object.keys(reducers).reduce(
@@ -125,7 +125,7 @@ var result = [
 ```
 如何求该同学的总成绩？
 
-```gwt javascript
+```Javascript
 var sum = result.reduce(function(prev, cur) {
     return cur.score + prev;
 }, 0);
@@ -133,7 +133,7 @@ var sum = result.reduce(function(prev, cur) {
 
 假设该同学因为违纪被处罚在总成绩总扣10分，只需要将初始值设置为-10即可。
 
-```gwt javascript
+``` javascript
 var sum = result.reduce(function(prev, cur) {
     return cur.score + prev;
 }, -10);
@@ -141,7 +141,7 @@ var sum = result.reduce(function(prev, cur) {
 我们来给这个例子增加一点难度。假如该同学的总成绩中，各科所占的比重不同，分别为50%，30%，20%，我们应该如何求出最终的权重结果呢？
 
 解决方案如下：
-```gwt javascript
+```Javascript
 var dis = {
     math: 0.5,
     chinese: 0.3,
@@ -160,7 +160,7 @@ console.log(sum, qsum);
 ```
 
 **再看一个例子，如何知道一串字符串中每个字母出现的次数？**
-```gwt javascript
+```Javascript
 var arrString = 'abcdaabc';
 
 arrString.split('').reduce(function(res, cur) {
@@ -170,7 +170,7 @@ arrString.split('').reduce(function(res, cur) {
 ```
 
 由于可以通过第二参数设置叠加结果的类型初始值，因此这个时候reduce就不再仅仅只是做一个加法了，我们可以灵活的运用它来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组，大家可以动手去尝试一样。
-```gwt javascript
+```Javascript
 [1, 2].reduce(function(res, cur) { 
     res.push(cur + 1); 
     return res; 
@@ -178,7 +178,7 @@ arrString.split('').reduce(function(res, cur) {
 ```
 
 koa的源码中，有一个only模块，整个模块就一个简单的返回reduce方法操作的对象：
-```gwt javascript
+```Javascript
 var only = function(obj, keys){
   obj = obj || {};
   if ('string' == typeof keys) keys = keys.split(/ +/);
@@ -191,7 +191,7 @@ var only = function(obj, keys){
 ```
 
 通过对reduce概念的理解，这个模块主要是想新建并返回一个obj对象中存在的keys的object对象。
-```gwt javascript
+```Javascript
 var a = {
     env : 'development',
     proxy : false,
