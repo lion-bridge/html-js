@@ -191,7 +191,7 @@ var only = function(obj, keys){
 ```
 
 通过对reduce概念的理解，这个模块主要是想新建并返回一个obj对象中存在的keys的object对象。
-```gwt javascript
+``` javascript
 var a = {
     env : 'development',
     proxy : false,
